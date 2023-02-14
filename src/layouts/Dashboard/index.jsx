@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-
+import { useNavigate } from "react-router-dom";
 import { Sidebar, Navbar } from "../../components";
 import React, { useContext } from "react";
 import { LoginContext } from "../../contexts/LoginContext";
@@ -19,21 +19,21 @@ const NAVIGATION = [
     name: "Log Out",
     path: "/",
     matchExact: true,
-    onClick: null,
   },
 ];
 
 export const Dashboard = () => {
+  const navigate = useNavigate();
   const { user, setUser } = useContext(LoginContext);
-  const handleLogOut = () => {
-    setUser(null);
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    setUser("");
     navigate("/");
   };
 
-  NAVIGATION[2].onClick = handleLogOut;
   return (
     <>
-      <Sidebar navigation={NAVIGATION} />
+      <Sidebar navigation={NAVIGATION} onLogout={handleLogout} />
       <main className="mt-20 h-full overflow-auto bg-gray-100 p-8 px-4 pb-20 md:ml-64">
         <Outlet />
       </main>

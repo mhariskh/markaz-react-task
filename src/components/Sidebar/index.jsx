@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 
-export const Sidebar = ({ navigation }) => {
+export const Sidebar = ({ navigation, onLogout }) => {
   return (
     <aside
       id="logo-sidebar"
@@ -11,19 +11,33 @@ export const Sidebar = ({ navigation }) => {
         <ul className="space-y-2">
           {navigation.map((item) => (
             <li key={item.name}>
-              <NavLink
-                to={item.path}
-                end={item.matchExact}
-                className={`mt-2 w-full flex items-center rounded-lg py-2 px-3 text-base font-normal text-primary-1 transition duration-150 
+              {item.name === "Log Out" ? (
+                <a
+                  href=""
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onLogout();
+                  }}
+                  className="mt-2 w-full flex items-center rounded-lg py-2 px-3 text-base font-normal text-primary-1 transition duration-150 hover:bg-gray-200 dark:hover:bg-green-300"
+                >
+                  {item.icon}
+                  <span className="ml-3">{item.name}</span>
+                </a>
+              ) : (
+                <NavLink
+                  to={item.path}
+                  end={item.matchExact}
+                  className={`mt-2 w-full flex items-center rounded-lg py-2 px-3 text-base font-normal text-primary-1 transition duration-150 
                             ${
                               item.isActive
                                 ? "bg-accent-1 text-white hover:bg-accent-2"
                                 : "hover:bg-gray-200 dark:hover:bg-green-300"
                             }`}
-              >
-                {item.icon}
-                <span className="ml-3">{item.name}</span>
-              </NavLink>
+                >
+                  {item.icon}
+                  <span className="ml-3">{item.name}</span>
+                </NavLink>
+              )}
             </li>
           ))}
         </ul>
@@ -33,3 +47,4 @@ export const Sidebar = ({ navigation }) => {
 };
 
 export default Sidebar;
+``;
