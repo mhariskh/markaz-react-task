@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { LoginContext } from "../../contexts/LoginContext";
 import { useNavigate } from "react-router-dom";
 import InputField from "../InputField";
 
 export const LoginForm = () => {
-  // const navigate = useNavigate();
+  const { setUserName } = useContext(LoginContext);
+  const navigate = useNavigate();
   const [emailValue, setEmailValue] = useState("");
   const [passwordValue, setPasswordValue] = useState("");
 
@@ -42,6 +44,7 @@ export const LoginForm = () => {
               onClick={(e) => {
                 e.preventDefault();
                 handleLogin(e);
+                navigate("/dashboard");
               }}
             >
               Log in
