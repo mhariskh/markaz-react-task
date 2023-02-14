@@ -1,4 +1,5 @@
-import React, { useState, useContext } from "react";
+// LoginForm.js
+import React, { useContext } from "react";
 import { LoginContext } from "../../contexts/LoginContext";
 import { useNavigate } from "react-router-dom";
 import InputField from "../InputField";
@@ -14,6 +15,12 @@ export const LoginForm = () => {
     console.log(email);
     console.log(password);
   };
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setUser((prevUser) => ({ ...prevUser, [name]: value }));
+  };
+
   return (
     <>
       <div className="mt-2 ">
@@ -25,10 +32,7 @@ export const LoginForm = () => {
               placeholder="Enter your email here"
               name="email"
               value={user.email}
-              onChange={(event) => {
-                const { name, value } = event.target;
-                setUser((prevUser) => ({ ...prevUser, [name]: value }));
-              }}
+              onChange={handleChange}
             />
           </div>
           <div>
@@ -38,10 +42,7 @@ export const LoginForm = () => {
               placeholder="Enter your password here"
               name="password"
               value={user.password}
-              onChange={(event) => {
-                const { name, value } = event.target;
-                setUser((prevUser) => ({ ...prevUser, [name]: value }));
-              }}
+              onChange={handleChange}
             />
           </div>
           <div>
