@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 const InputField = ({
   label,
@@ -8,6 +8,7 @@ const InputField = ({
   name,
   value,
   isDisabled,
+  onChange,
 }) => {
   return (
     <>
@@ -27,6 +28,7 @@ const InputField = ({
           placeholder={placeholder}
           value={value}
           disabled={isDisabled}
+          onChange={onChange}
         />
         {error && (
           <span className="text-md mt-2 inline-block text-red-600">
