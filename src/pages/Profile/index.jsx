@@ -1,5 +1,9 @@
 import React, { useContext } from "react";
-import { ProfileGreetingsCard, ProfileInfoCard } from "../../components";
+import {
+  HeaderCard,
+  ProfileInfoCard,
+  ProfileAvatarCard,
+} from "../../components";
 import { LoginContext } from "../../contexts/LoginContext";
 
 export const Profile = () => {
@@ -8,7 +12,10 @@ export const Profile = () => {
     <div className="flex flex-col gap-8">
       <div className="grid grid-cols-12 gap-8">
         <div className="col-span-12">
-          <ProfileGreetingsCard />
+          <HeaderCard
+            title="Profile Page"
+            description="This page contains details regarding your profile"
+          />
         </div>
       </div>
       <div className="grid grid-cols-12 gap-8 mb-3">
@@ -16,7 +23,7 @@ export const Profile = () => {
           <ProfileInfoCard email={user.email} password={user.password} />
         </div>
         <div className="col-span-6">
-          <ProfileInfoCard email={user.email} password={user.password} />
+          <ProfileAvatarCard />
         </div>
       </div>
     </div>
