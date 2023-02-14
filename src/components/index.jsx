@@ -3,5 +3,7 @@ export * from "./LoginForm";
 export * from "./Navbar";
 export * from "./Sidebar";
 export * from "./StatsCard";
+export * from "./ProfileGreetingsCard";
+export * from "./ProfileInfoCard";
 export * from "./GreetingCard";
 export * from "./ProtectedRoute";
