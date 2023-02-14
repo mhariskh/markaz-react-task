@@ -6,7 +6,7 @@ export const ProfileAvatarCard = () => {
         <div className="w-full border-b  py-6 px-8 last-of-type:border-b-0 lg:px-14 ">
           <div className="">
             <img
-              src={"https://picsum.photos/id/237/200"}
+              src={"https://i.ibb.co/Z6ymMR9/Profile-Picture-Photo.jpg"}
               alt=""
               className="rounded-md border border-yellow-500 h-full w-full"
             />
