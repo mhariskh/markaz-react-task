@@ -1,9 +1,10 @@
+import React, { useState } from "react";
 import { Outlet } from "react-router-dom";
-import LoginContext from "../contexts/LoginContext";
+import LoginContext from "./contexts/LoginContext";
 const Root = () => {
-  const [userName, setUserName] = useState("");
+  const [user, setUser] = useState({ email: "", password: "" });
   return (
-    <LoginContext.Provider value={{ userName, setUserName }}>
+    <LoginContext.Provider value={{ user, setUser }}>
       <div className="h-screen w-screen overflow-hidden">
         <Outlet />
       </div>

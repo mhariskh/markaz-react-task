@@ -1,8 +1,9 @@
+import React, { useState, useContext } from "react";
 import { StatsCard, GreetingCard } from "../../components";
 import { LoginContext } from "../../contexts/LoginContext";
 
 export const Home = () => {
-  const { userName } = useContext(LoginContext);
+  const { user } = useContext(LoginContext);
   return (
     <div className="flex flex-col gap-8">
       <div className="grid grid-cols-12 gap-8 mb-5">
@@ -10,8 +11,11 @@ export const Home = () => {
           <StatsCard />
         </div>
         <div className="col-span-9">
-          <GreetingCard />
+          <GreetingCard userName={user.email} />
         </div>
+      </div>
+      <div className="grid grid-cols-12 gap-8 mb-5">
+        <div className="col-span-12"></div>
       </div>
     </div>
   );
