@@ -15,6 +15,8 @@ export const Profile = () => {
           <HeaderCard
             title="Profile Page"
             description="This page contains details regarding your profile"
+            goToButtonText="Go to Home Page"
+            goToButtonLink="/dashboard"
           />
         </div>
       </div>

@@ -11,14 +11,16 @@ export const Home = () => {
           <HeaderCard
             title="Home Page"
             description="Welcome to the Home Page"
+            goToButtonText="Go to Profile Page"
+            goToButtonLink="/dashboard/profile"
           />
         </div>
       </div>
       <div className="grid grid-cols-12 gap-8 mb-5">
-        <div className="col-span-3">
+        <div className="col-span-5">
           <StatsCard />
         </div>
-        <div className="col-span-9">
+        <div className="col-span-7">
           <GreetingCard userName={user.email} />
         </div>
       </div>
