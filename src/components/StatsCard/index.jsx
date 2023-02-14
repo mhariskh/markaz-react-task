@@ -35,12 +35,12 @@ export const StatsCard = () => {
             className="w-full border-b  py-6 px-8 last-of-type:border-b-0 lg:px-14"
           >
             <span
-              className="text-center text-4xl font-bold"
+              className="text-center lg:text-4xl md:text-2xl sm:text-2xl font-bold"
               style={{ color: stat.color }}
             >
               {stat.count}+
             </span>
-            <p className="font-light">{stat.title}</p>
+            <p className="font-light  sm:text-md">{stat.title}</p>
           </div>
         ))}
       </div>
