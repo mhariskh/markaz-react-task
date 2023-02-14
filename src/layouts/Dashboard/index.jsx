@@ -29,7 +29,7 @@ export const Dashboard = () => {
   return (
     <>
       <Sidebar navigation={NAVIGATION} />
-      <main className="mt-16 h-full overflow-auto bg-gray-100 p-8 px-4 pb-20 md:ml-64">
+      <main className="mt-20 h-full overflow-auto bg-gray-100 p-8 px-4 pb-20 md:ml-64">
         <Outlet />
       </main>
     </>
