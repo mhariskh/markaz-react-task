@@ -1,16 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { LoginContext } from "../../contexts/LoginContext";
 import { useNavigate } from "react-router-dom";
 import InputField from "../InputField";
 
 export const LoginForm = () => {
-  // const navigate = useNavigate();
-  const [emailValue, setEmailValue] = useState("");
-  const [passwordValue, setPasswordValue] = useState("");
+  const { user, setUser } = useContext(LoginContext);
+  const navigate = useNavigate();
 
   const handleLogin = (event) => {
     event.preventDefault();
-    console.log("Email:", emailValue);
-    console.log("Password:", passwordValue);
+
+    const { email, password } = user;
+    console.log(email);
+    console.log(password);
   };
   return (
     <>
@@ -22,8 +24,11 @@ export const LoginForm = () => {
               type="email"
               placeholder="Enter your email here"
               name="email"
-              value={emailValue}
-              onChange={(event) => setEmailValue(event.target.value)}
+              value={user.email}
+              onChange={(event) => {
+                const { name, value } = event.target;
+                setUser((prevUser) => ({ ...prevUser, [name]: value }));
+              }}
             />
           </div>
           <div>
@@ -32,8 +37,11 @@ export const LoginForm = () => {
               type="password"
               placeholder="Enter your password here"
               name="password"
-              value={passwordValue}
-              onChange={(event) => setPasswordValue(event.target.value)}
+              value={user.password}
+              onChange={(event) => {
+                const { name, value } = event.target;
+                setUser((prevUser) => ({ ...prevUser, [name]: value }));
+              }}
             />
           </div>
           <div>
@@ -42,6 +50,7 @@ export const LoginForm = () => {
               onClick={(e) => {
                 e.preventDefault();
                 handleLogin(e);
+                navigate("/dashboard");
               }}
             >
               Log in

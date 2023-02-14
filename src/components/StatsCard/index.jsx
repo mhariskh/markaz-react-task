@@ -3,25 +3,25 @@ const STATS = [
     id: 1,
     title: "Total Markaz Businesses   ",
     count: 80,
-    color: "#01d874",
+    color: "#0066ff",
   },
   {
     id: 2,
     title: "Total Markaz Users",
     count: 3000,
-    color: "#20b1b9",
+    color: "#0066ff",
   },
   {
     id: 3,
     title: "Total Markaz Product Sales",
     count: 1021,
-    color: "#016dd8",
+    color: "#0066ff",
   },
   {
     id: 4,
     title: "Total Markaz Employees",
     count: 2321,
-    color: "#ff4409",
+    color: "#0066ff",
   },
 ];
 

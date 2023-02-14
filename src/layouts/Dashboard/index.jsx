@@ -1,6 +1,8 @@
 import { Outlet } from "react-router-dom";
 
 import { Sidebar, Navbar } from "../../components";
+import React, { useContext } from "react";
+import { LoginContext } from "../../contexts/LoginContext";
 
 const NAVIGATION = [
   {
@@ -17,15 +19,18 @@ const NAVIGATION = [
     name: "Log Out",
     path: "/",
     matchExact: true,
-  },
-  {
-    name: "Error 404 Page",
-    path: "/random-link",
-    matchExact: true,
+    onClick: null,
   },
 ];
 
 export const Dashboard = () => {
+  const { user, setUser } = useContext(LoginContext);
+  const handleLogOut = () => {
+    setUser(null);
+    navigate("/");
+  };
+
+  NAVIGATION[2].onClick = handleLogOut;
   return (
     <>
       <Sidebar navigation={NAVIGATION} />
